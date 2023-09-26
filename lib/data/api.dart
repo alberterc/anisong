@@ -22,7 +22,7 @@ class Anime {
   }
 
   static Future<Map?> getThemes(String id) async {
-    final url = '${JikanApi.baseUrl}${JikanApi.animeSearch}/$id{JikanApi.themes}';
+    final url = '${JikanApi.baseUrl}${JikanApi.animeSearch}/$id${JikanApi.themes}';
     final response = await http.get(Uri.parse(url));
 
     if (response.statusCode == 200) {
