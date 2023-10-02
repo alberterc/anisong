@@ -139,26 +139,6 @@ class ThumbnailCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    String dialogTitle = 'Details';
-
-    showDetailModal() {
-      showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            contentPadding: EdgeInsets.only(top: 10.0),
-            title: screenSize.width <= Mobile.minScreenWidth ?
-              Text(dialogTitle, style: TextStyle(fontSize: Mobile.fontSize),) :
-              Text(dialogTitle, style: TextStyle(fontSize: Dekstop.fontSize + fontSizeLargerOffset),),
-            content: SizedBox(
-              height: 300.0,
-              width: 500.0,
-              child: SearchThemeScreen(dataId: dataId),
-            ),
-          );
-        }
-      );
-    }
     
     return Card(
       shape: RoundedRectangleBorder(
