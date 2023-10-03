@@ -1,5 +1,5 @@
 import 'package:anisong/data/api.dart';
-import 'package:anisong/searchTheme/search_theme_screen.dart';
+import 'package:anisong/searchItem/search_item_screen.dart';
 import 'package:anisong/utility.dart';
 import 'package:flutter/material.dart';
 
@@ -9,36 +9,34 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => HomeScreenState();
 }
-
 class HomeScreenState extends State<HomeScreen> {
   String currSearchValue = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SizedBox(
-          width: MediaQuery.of(context).size.width,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const SizedBox(height: 20.0,),
-                SearchTextField(onContentChanged: (String value) {
-                  if (currSearchValue != value) {
-                    setState(() {
-                      currSearchValue = value;
-                    });
-                  }
-                }),
-                const SizedBox(height: 20.0,),
-                Flexible(child: SearchResultList(query: currSearchValue)),
-              ],
-            ),
-        ),
-      );
+      body: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 20.0,),
+              SearchTextField(onContentChanged: (String value) {
+                if (currSearchValue != value) {
+                  setState(() {
+                    currSearchValue = value;
+                  });
+                }
+              }),
+              const SizedBox(height: 20.0,),
+              Flexible(child: SearchResultList(query: currSearchValue)),
+            ],
+          ),
+      ),
+    );
   }
 }
-
 
 class SearchTextField extends StatelessWidget {
   const SearchTextField({super.key, required this.onContentChanged});
@@ -152,7 +150,7 @@ class ThumbnailCard extends StatelessWidget {
         fit: BoxFit.cover,
         child: InkWell(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Scaffold(body: SearchThemeScreen(dataId: dataId),)));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => SearchItemScreen(dataId: dataId, dataImage: dataImage, dataTitles: dataTitles,)));
             // showDetailModal();
           },
           child: Stack(
