@@ -9,9 +9,6 @@ An app to get what the opening and ending songs are of an anime title.
 - Material App
 - Flutter packages (check [pubspec.yaml](https://github.com/RadXGH/anisong/blob/main/pubspec.yaml)) : [http](https://pub.dev/packages/http) and [url_launcher](https://pub.dev/packages/url_launcher).
 
-## Developers
-Albert E (albertenrico.5@gmail.com)
-
 ## App Preview
 | Dekstop Web | Mobile Web | Behavior |
 |-|-|-|
